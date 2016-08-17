@@ -1,3 +1,7 @@
 ul#lista_tarefas {
   list-style-type: none;
 }
+
+.feita {
+  text-decoration: line-through;
+}
