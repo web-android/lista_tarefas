@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="ListaTarefas">
+<head>
+	<meta charset=utf-8 />
+	<title></title>
+
+	<script type="text/javascript" src=""></script>
+	<script type="text/javascript"
+		src="angular.js">
+	</script>
+	<script type="text/javascript"
+	src="app.js">
+	</script>
+	<link rel="stylesheet" type="text/css"
+	 media="screen" href="styles.css" />
+
+
+</head>
+<body ng-controller="TarefasController as tarefasCtrl">
+  <form name="formNovaTarefa" id="formNovaTarefa"
+		ng-submit="adicionarTarefa(tarefasCtrl.novaTarefa)"
+		>
+
+      <input type="text"
+       name="descricao" value=""
+       id="descricao"
+       placeholder="Nova Tarefa"
+			 ng-model="tarefasCtrl.novaTarefa.descricao"
+      />
+      <input type="submit"
+        value="Criar"
+				/>
+  </form>
+
+  <section id="tarefas">
+    <ul id="lista_tarefas"
+		ng-show="tarefas">
+			<li ng-repeat="tarefa in tarefas"
+			>
+				<label id="label_tarefa_{{tarefa.id}}"
+					for="tarefa_{{tarefa.id}}">
+				<input id="tarefa_{{tarefa.id}}"
+					type="checkbox"
+					name="tarefa_{{tarefa.id}}"
+					value={{tarefa.feita}}
+					ng-model="tarefa.feita"
+					ng-change="atualizaCheckbox(tarefa)" />
+					{{tarefa.descricao}}
+				</label>
+			</li>
+    </ul>
+  </section>
+
+</body>
+
+
+</html>
